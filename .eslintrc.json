@@ -1,0 +1,153 @@
+{
+  "env": {
+    "node": true,
+    "mocha": true
+  },
+  "plugins": ["@typescript-eslint"],
+  "globals": {
+    "Atomics": "readonly",
+    "SharedArrayBuffer": "readonly",
+    "BigInt": true
+  },
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaVersion": 2022,
+    "sourceType": "module" // Allows for the use of imports
+  },
+  "extends": ["airbnb-base"],
+  "overrides": [
+    {
+      "files": ["*.ts", "*.tsx"],
+      "extends": ["plugin:@typescript-eslint/eslint-recommended", "plugin:@typescript-eslint/recommended"],
+      "rules": {
+        "@typescript-eslint/explicit-module-boundary-types": "off",
+        "@typescript-eslint/no-empty-function": "off",
+        "@typescript-eslint/no-shadow": "error",
+        "@typescript-eslint/semi": ["error"],
+        "@typescript-eslint/restrict-template-expressions": "error",
+        "@typescript-eslint/await-thenable": "error",
+        "@typescript-eslint/consistent-generic-constructors": "error",
+        "@typescript-eslint/consistent-type-imports": "error",
+        "@typescript-eslint/explicit-member-accessibility": "error",
+        "@typescript-eslint/no-base-to-string": "error",
+        "@typescript-eslint/no-floating-promises": "error",
+        "@typescript-eslint/no-misused-promises": "error",
+        "@typescript-eslint/no-unused-vars": "error",
+        "@typescript-eslint/no-for-in-array": "error",
+        "@typescript-eslint/no-implied-eval": "error",
+        "@typescript-eslint/no-inferrable-types": "error",
+        "@typescript-eslint/no-invalid-this": "error",
+        "@typescript-eslint/no-throw-literal": "error",
+        "@typescript-eslint/no-unnecessary-type-arguments": "warn",
+        "@typescript-eslint/no-unnecessary-type-constraint": "error",
+        "@typescript-eslint/no-unsafe-argument": "error",
+        "@typescript-eslint/no-unsafe-call": "error",
+        "@typescript-eslint/no-unsafe-member-access": "error",
+        "@typescript-eslint/no-unsafe-return": "error",
+        "@typescript-eslint/no-use-before-define": [
+          "error",
+          {
+            "functions": false,
+            "classes": false
+          }
+        ],
+        "@typescript-eslint/prefer-as-const": "error",
+        "@typescript-eslint/prefer-nullish-coalescing": "warn",
+        "@typescript-eslint/prefer-optional-chain": "warn",
+        "@typescript-eslint/prefer-reduce-type-parameter": "warn",
+        "@typescript-eslint/prefer-ts-expect-error": "warn",
+        "@typescript-eslint/space-before-blocks": "error",
+        "@typescript-eslint/switch-exhaustiveness-check": "warn",
+        "@typescript-eslint/type-annotation-spacing": "error",
+        "@typescript-eslint/unbound-method": [
+          "error",
+          {
+            "ignoreStatic": true
+          }
+        ],
+        "@typescript-eslint/member-delimiter-style": [
+          "error",
+          {
+            "multiline": {
+              "delimiter": "semi", // 'none' or 'semi' or 'comma'
+              "requireLast": true
+            },
+            "singleline": {
+              "delimiter": "comma", // 'semi' or 'comma'
+              "requireLast": false
+            }
+          }
+        ]
+      },
+      "parserOptions": {
+        "ecmaVersion": 2022,
+        "project": "./tsconfig.json"
+      }
+    }
+  ],
+  "rules": {
+    "space-before-blocks": "off",
+    "semi": "off",
+    "import/order": [
+      "error",
+      {
+        "groups": [["builtin", "external"], ["parent"], ["sibling", "index"], "type"],
+        "pathGroupsExcludedImportTypes": ["type"],
+        "newlines-between": "always"
+      }
+    ],
+    "no-console": [
+      "warn",
+      {
+        "allow": ["debug", "warn", "error"]
+      }
+    ],
+    "no-throw-literal": "off",
+    "no-unused-vars": "off",
+    "no-void": ["error", { "allowAsStatement": true }],
+    "no-multi-str": "off",
+    "no-underscore-dangle": "off",
+    "no-bitwise": "off",
+    "no-plusplus": "off",
+    "no-restricted-syntax": "off",
+    "no-unused-expressions": "off",
+    "no-param-reassign": "off",
+    "no-shadow": "off",
+    "global-require": "off",
+    "no-use-before-define": "off",
+    "strict": [2, "global"],
+    "max-len": "off",
+    "camelcase": "off",
+    "prefer-const": [
+      "error",
+      {
+        "destructuring": "all"
+      }
+    ],
+    "no-await-in-loop": "off",
+    "import/extensions": [
+      "error",
+      "ignorePackages",
+      {
+        "js": "never",
+        "jsx": "never",
+        "ts": "never",
+        "tsx": "never"
+      }
+    ],
+    "import/no-extraneous-dependencies": [
+      "error",
+      {
+        "optionalDependencies": true
+      }
+    ]
+  },
+  "settings": {
+    "import/core-modules": ["axios"],
+    "import/resolver": {
+      "node": {
+        "extensions": [".js", ".jsx", ".ts", ".tsx"]
+      }
+    }
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "name": "discord-proxy",
+  "scripts": {
+    "update-statbot": "npm install statbot-project-configs statbot-utils",
+    "lint": "eslint --fix . --max-warnings=0",
+    "build": "tsc -b && rimraf dist && cp -r build dist",
+    "build:dev": "npm run lint && npm run build",
+    "start": "npm run build && ts-node -r dotenv/config src/server.ts",
+    "qstart": "ts-node -r dotenv/config src/server.ts",
+    "launch": "npm run build && pm2 startOrReload ecosystem.production.config.js"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.7",
+    "paracord": "github:mr-tech/paracord#master",
+    "statbot-utils": "github:DiscordStatbot/statbot-utils#invite-update"
+  },
+  "devDependencies": {
+    "@types/node": "^17.0.23",
+    "@typescript-eslint/eslint-plugin": "^7.5.0",
+    "@typescript-eslint/parser": "^7.5.0",
+    "eslint": "^8.57.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.29.1",
+    "rimraf": "^6.0.1",
+    "ts-node": "^10.7.0",
+    "typescript": "^5.4.3"
+  }
+}
