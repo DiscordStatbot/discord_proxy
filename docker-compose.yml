@@ -1,0 +1,25 @@
+services:
+  discord-proxy:
+    build:
+      context: .
+      args:
+        - SERVER_PORT=${SERVER_PORT:-50051}
+        - GITHUB_TOKEN=${GITHUB_TOKEN}
+    container_name: discord-proxy
+    restart: unless-stopped
+    ports:
+      - "${SERVER_PORT:-50051}:${SERVER_PORT:-50051}"
+    environment:
+      - ENV=${ENV:-production}
+      - SERVER_HOST=${SERVER_HOST:-0.0.0.0}
+      - SERVER_PORT=${SERVER_PORT:-50051}
+      - GLOBAL_MAX=${GLOBAL_MAX}
+      - GLOBAL_PADDING=${GLOBAL_PADDING}
+      - REMOTE_CACHE_HOST=${REMOTE_CACHE_HOST}
+      - REMOTE_CACHE_PORT=${REMOTE_CACHE_PORT}
+      - LOGGING_HOST=${LOGGING_HOST}
+      - LOGGING_METRICS_PORT=${LOGGING_METRICS_PORT}
+      - LOGGING_TEXT_PORT=${LOGGING_TEXT_PORT}
+    # Optionally use env_file instead of individual environment variables
+    # env_file:
+    #   - .env

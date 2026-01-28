@@ -7,7 +7,9 @@
     "build:dev": "npm run lint && npm run build",
     "start": "npm run build && ts-node -r dotenv/config src/server.ts",
     "qstart": "ts-node -r dotenv/config src/server.ts",
-    "launch": "npm run build && pm2 startOrReload ecosystem.production.config.js"
+    "launch": "npm run build && pm2 startOrReload ecosystem.production.config.js",
+    "docker-run": "DOCKER_BUILDKIT=1 docker build --ssh default -t discord-proxy .",
+    "docker-compose": "DOCKER_BUILDKIT=1 docker compose up -d"
   },
   "dependencies": {
     "dotenv": "^16.4.7",
